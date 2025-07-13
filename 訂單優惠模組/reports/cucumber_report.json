@@ -1,0 +1,898 @@
+[
+  {
+    "description": "  As a shopper\n  I want the system to calculate my order total with applicable promotions\n  So that I can understand how much to pay and what items I will receive",
+    "elements": [
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;single-product-without-promotions",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Single product without promotions",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 438666
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "no promotions are applied",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 128666
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "1",
+                      "500"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 9,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 189000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "500"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 53166
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38332
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;threshold-discount-applies-when-subtotal-reaches-1000",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Threshold discount applies when subtotal reaches 1000",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 14667
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "threshold",
+                      "discount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1000",
+                      "100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "the threshold discount promotion is configured:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 41249
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "2",
+                      "500"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "褲子",
+                      "1",
+                      "600"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 23,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 29291
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "originalAmount",
+                      "discount",
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1600",
+                      "100",
+                      "1500"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26500
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "褲子",
+                      "1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 30,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 24333
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;buy-one-get-one-for-cosmetics---multiple-products",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Buy-one-get-one for cosmetics - multiple products",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 102834
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 36,
+            "name": "the buy one get one promotion for cosmetics is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 37333
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "category",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "cosmetics",
+                      "1",
+                      "300"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "粉底液",
+                      "cosmetics",
+                      "1",
+                      "400"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 37,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28291
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "700"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25667
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "粉底液",
+                      "2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 44,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;buy-one-get-one-for-cosmetics---same-product-twice",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "Buy-one-get-one for cosmetics - same product twice",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 13457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 50,
+            "name": "the buy one get one promotion for cosmetics is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13417
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "category",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "cosmetics",
+                      "2",
+                      "300"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 51,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19500
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "600"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 54,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13750
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "3"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 57,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 13500
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;buy-one-get-one-for-cosmetics---mixed-categories",
+        "keyword": "Scenario",
+        "line": 61,
+        "name": "Buy-one-get-one for cosmetics - mixed categories",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 10791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 62,
+            "name": "the buy one get one promotion for cosmetics is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12332
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "category",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "apparel",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "cosmetics",
+                      "1",
+                      "300"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 63,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17374
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "400"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 67,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 57082
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 70,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15333
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e-commerce-order-pricing-promotions;multiple-promotions-stacked",
+        "keyword": "Scenario",
+        "line": 75,
+        "name": "Multiple promotions stacked",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 10957
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "threshold",
+                      "discount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1000",
+                      "100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 76,
+            "name": "the threshold discount promotion is configured:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 79,
+            "name": "the buy one get one promotion for cosmetics is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "category",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "apparel",
+                      "3",
+                      "500"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "cosmetics",
+                      "1",
+                      "300"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 80,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65709
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "originalAmount",
+                      "discount",
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1800",
+                      "100",
+                      "1700"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 84,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:44"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14625
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "T-shirt",
+                      "3"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "口紅",
+                      "2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 87,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14874
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@order_pricing",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "e-commerce-order-pricing-promotions",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "E-commerce Order Pricing Promotions",
+    "tags": [
+      {
+        "name": "@order_pricing",
+        "line": 1
+      }
+    ],
+    "uri": "src/test/features/order.feature"
+  }
+]

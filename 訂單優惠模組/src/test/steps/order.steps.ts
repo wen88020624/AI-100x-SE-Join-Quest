@@ -24,6 +24,10 @@ Given('the buy one get one promotion for cosmetics is active', function () {
   orderService.setBuyOneGetOnePromotion('cosmetics');
 });
 
+Given('the Double Eleven promotion is active', function () {
+  orderService.setDoubleElevenPromotion();
+});
+
 When('a customer places an order with:', function (dataTable) {
   const products: Product[] = [];
   const rows = dataTable.hashes();

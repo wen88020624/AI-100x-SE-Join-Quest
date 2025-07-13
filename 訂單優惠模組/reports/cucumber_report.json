@@ -1,5 +1,531 @@
 [
   {
+    "description": "  As a shopper during Double Eleven sale\n  I want to get bulk discount for same products\n  So that I can save money when buying multiple items of the same product",
+    "elements": [
+      {
+        "description": "",
+        "id": "double-eleven-promotion;buy-12-pieces-of-same-product---partial-bulk-discount",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Buy 12 pieces of same product - partial bulk discount",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 446083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "the Double Eleven promotion is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83791
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "12",
+                      "100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 11,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 195582
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "originalAmount",
+                      "discount",
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1200",
+                      "200",
+                      "1000"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 71332
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "12"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40916
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@double_eleven_promotion",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "double-eleven-promotion;buy-27-pieces-of-same-product---multiple-bulk-discounts",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Buy 27 pieces of same product - multiple bulk discounts",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 14374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "the Double Eleven promotion is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17457
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "27",
+                      "100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 22,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27500
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "originalAmount",
+                      "discount",
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2700",
+                      "400",
+                      "2300"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23874
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "襪子",
+                      "27"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 28,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22583
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@double_eleven_promotion",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "double-eleven-promotion;buy-10-pieces-of-different-products---no-bulk-discount",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Buy 10 pieces of different products - no bulk discount",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 95334
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "the Double Eleven promotion is active",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21917
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity",
+                      "unitPrice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品A",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品B",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品C",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品D",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品E",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品F",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品G",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品H",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品I",
+                      "1",
+                      "100"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品J",
+                      "1",
+                      "100"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 33,
+            "name": "a customer places an order with:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39834
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "originalAmount",
+                      "discount",
+                      "totalAmount"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1000",
+                      "0",
+                      "1000"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "the order summary should be:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25041
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "productName",
+                      "quantity"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品A",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品B",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品C",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品D",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品E",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品F",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品G",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品H",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品I",
+                      "1"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "商品J",
+                      "1"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 48,
+            "name": "the customer should receive:",
+            "match": {
+              "location": "src/test/steps/order.steps.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@double_eleven_promotion",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "double-eleven-promotion",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Double Eleven Promotion",
+    "tags": [
+      {
+        "name": "@double_eleven_promotion",
+        "line": 1
+      }
+    ],
+    "uri": "src/test/features/double-eleven.feature"
+  },
+  {
     "description": "  As a shopper\n  I want the system to calculate my order total with applicable promotions\n  So that I can understand how much to pay and what items I will receive",
     "elements": [
       {
@@ -14,7 +540,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 438666
+              "duration": 13625
             }
           },
           {
@@ -27,7 +553,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 128666
+              "duration": 24374
             }
           },
           {
@@ -55,11 +581,11 @@
             "line": 9,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 189000
+              "duration": 20542
             }
           },
           {
@@ -83,11 +609,11 @@
             "line": 12,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 53166
+              "duration": 17791
             }
           },
           {
@@ -113,11 +639,11 @@
             "line": 15,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 38332
+              "duration": 14957
             }
           }
         ],
@@ -141,7 +667,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 14667
+              "duration": 11874
             }
           },
           {
@@ -171,7 +697,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 41249
+              "duration": 35542
             }
           },
           {
@@ -206,11 +732,11 @@
             "line": 23,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 29291
+              "duration": 19583
             }
           },
           {
@@ -238,11 +764,11 @@
             "line": 27,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 26500
+              "duration": 14541
             }
           },
           {
@@ -274,11 +800,11 @@
             "line": 30,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 24333
+              "duration": 14084
             }
           }
         ],
@@ -302,7 +828,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 102834
+              "duration": 10875
             }
           },
           {
@@ -315,7 +841,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 37333
+              "duration": 29167
             }
           },
           {
@@ -353,11 +879,11 @@
             "line": 37,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 28291
+              "duration": 24416
             }
           },
           {
@@ -381,11 +907,11 @@
             "line": 41,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 25667
+              "duration": 13207
             }
           },
           {
@@ -417,11 +943,11 @@
             "line": 44,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 71958
+              "duration": 13709
             }
           }
         ],
@@ -445,7 +971,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 13457
+              "duration": 11208
             }
           },
           {
@@ -458,7 +984,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 13417
+              "duration": 12166
             }
           },
           {
@@ -488,11 +1014,11 @@
             "line": 51,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 19500
+              "duration": 103875
             }
           },
           {
@@ -516,11 +1042,11 @@
             "line": 54,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 13750
+              "duration": 16125
             }
           },
           {
@@ -546,11 +1072,11 @@
             "line": 57,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 13500
+              "duration": 21915
             }
           }
         ],
@@ -574,7 +1100,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 10791
+              "duration": 11041
             }
           },
           {
@@ -587,7 +1113,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 12332
+              "duration": 11917
             }
           },
           {
@@ -625,11 +1151,11 @@
             "line": 63,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 17374
+              "duration": 21250
             }
           },
           {
@@ -653,11 +1179,11 @@
             "line": 67,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 57082
+              "duration": 13041
             }
           },
           {
@@ -689,11 +1215,11 @@
             "line": 70,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 15333
+              "duration": 13542
             }
           }
         ],
@@ -717,7 +1243,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 10957
+              "duration": 11208
             }
           },
           {
@@ -747,7 +1273,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 14667
+              "duration": 14999
             }
           },
           {
@@ -760,7 +1286,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 12000
+              "duration": 11583
             }
           },
           {
@@ -798,11 +1324,11 @@
             "line": 80,
             "name": "a customer places an order with:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:27"
+              "location": "src/test/steps/order.steps.ts:31"
             },
             "result": {
               "status": "passed",
-              "duration": 65709
+              "duration": 21083
             }
           },
           {
@@ -830,11 +1356,11 @@
             "line": 84,
             "name": "the order summary should be:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:44"
+              "location": "src/test/steps/order.steps.ts:48"
             },
             "result": {
               "status": "passed",
-              "duration": 14625
+              "duration": 14957
             }
           },
           {
@@ -866,11 +1392,11 @@
             "line": 87,
             "name": "the customer should receive:",
             "match": {
-              "location": "src/test/steps/order.steps.ts:60"
+              "location": "src/test/steps/order.steps.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 14874
+              "duration": 13582
             }
           }
         ],

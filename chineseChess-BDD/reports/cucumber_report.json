@@ -1,0 +1,68 @@
+[
+  {
+    "description": "  As a player\n  I want to follow standard Chinese Chess rules\n  So that I can play the game correctly\n\n  We use (row, col) to indicate positions on a 9×10 board.\n  Row 1 is Red’s bottom row; Row 10 is Black’s top row.\n  Column 1 is the leftmost column from Red’s perspective.\n  \n  Each scenario sets up minimal conditions with relevant pieces.",
+    "elements": [
+      {
+        "description": "",
+        "id": "chinese-chess-(象棋)-rules;red-moves-the-cannon-like-a-rook-with-an-empty-path-(legal)",
+        "keyword": "Scenario",
+        "line": 91,
+        "name": "Red moves the Cannon like a Rook with an empty path (Legal)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 92,
+            "name": "the board is empty except for a Red Cannon at (6, 2)",
+            "match": {
+              "location": "features/step_definitions/chess.steps.ts:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 194083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 93,
+            "name": "Red moves the Cannon from (6, 2) to (6, 8)",
+            "match": {
+              "location": "features/step_definitions/chess.steps.ts:70"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 115375
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 94,
+            "name": "the move is legal",
+            "match": {
+              "location": "features/step_definitions/chess.steps.ts:76"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19166
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Cannon",
+            "line": 90
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "chinese-chess-(象棋)-rules",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Chinese Chess (象棋) Rules",
+    "tags": [],
+    "uri": "features/chess.feature"
+  }
+]

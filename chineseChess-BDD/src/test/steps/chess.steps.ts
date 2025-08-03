@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { ChessService, Position, MoveResult } from '../../src/chess.service';
+import { ChessService, Position, MoveResult } from '../../main/services/chess.service';
 
 let chessService: ChessService;
 let moveResult: MoveResult;

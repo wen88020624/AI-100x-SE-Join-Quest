@@ -41,33 +41,48 @@ export class ChessService {
       return { isLegal: false };
     }
 
-    // 檢查是否是將軍的移動
+    // 檢查目標位置是否有棋子
+    const targetPiece = this.getPieceAt(to);
+    
+    // 先驗證移動是否合法
+    let moveResult: MoveResult;
+    
     if (piece.type === 'General') {
-      return this.validateGeneralMove(from, to, piece.color);
+      moveResult = this.validateGeneralMove(from, to, piece.color);
+    } else if (piece.type === 'Guard') {
+      moveResult = this.validateGuardMove(from, to, piece.color);
+    } else if (piece.type === 'Rook') {
+      moveResult = this.validateRookMove(from, to, piece.color);
+    } else if (piece.type === 'Horse') {
+      moveResult = this.validateHorseMove(from, to, piece.color);
+    } else if (piece.type === 'Cannon') {
+      moveResult = this.validateCannonMove(from, to, piece.color);
+    } else if (piece.type === 'Elephant') {
+      moveResult = this.validateElephantMove(from, to, piece.color);
+    } else if (piece.type === 'Soldier') {
+      moveResult = this.validateSoldierMove(from, to, piece.color);
+    } else {
+      // 其他棋子邏輯待實作
+      moveResult = { isLegal: false };
     }
 
-    // 檢查是否是衛士的移動
-    if (piece.type === 'Guard') {
-      return this.validateGuardMove(from, to, piece.color);
+    // 如果移動不合法，直接返回
+    if (!moveResult.isLegal) {
+      return moveResult;
     }
 
-    // 檢查是否是車的移動
-    if (piece.type === 'Rook') {
-      return this.validateRookMove(from, to, piece.color);
+    // 檢查是否吃掉對方將軍
+    if (targetPiece && targetPiece.type === 'General' && targetPiece.color !== piece.color) {
+      // 吃掉對方將軍，遊戲結束，當前移動方獲勝
+      return { 
+        isLegal: true, 
+        gameOver: true, 
+        winner: piece.color 
+      };
     }
 
-    // 檢查是否是馬的移動
-    if (piece.type === 'Horse') {
-      return this.validateHorseMove(from, to, piece.color);
-    }
-
-    // 檢查是否是炮的移動
-    if (piece.type === 'Cannon') {
-      return this.validateCannonMove(from, to, piece.color);
-    }
-
-    // 其他棋子邏輯待實作
-    return { isLegal: false };
+    // 一般合法移動
+    return moveResult;
   }
 
   private validateGeneralMove(from: Position, to: Position, color: 'Red' | 'Black'): MoveResult {
@@ -295,6 +310,85 @@ export class ChessService {
       }
     }
     return true; // 路徑清空
+  }
+
+  private validateElephantMove(from: Position, to: Position, color: 'Red' | 'Black'): MoveResult {
+    const rowDiff = Math.abs(to.row - from.row);
+    const colDiff = Math.abs(to.col - from.col);
+    
+    // 象只能斜向移動2格（田字形移動）
+    if (rowDiff !== 2 || colDiff !== 2) {
+      return { isLegal: false };
+    }
+
+    // 檢查是否過河
+    if (color === 'Red' && to.row > 5) {
+      return { isLegal: false }; // 紅方象不能過河（越過第5行）
+    }
+    if (color === 'Black' && to.row < 6) {
+      return { isLegal: false }; // 黑方象不能過河（越過第6行）
+    }
+
+    // 檢查象眼（中間位置）是否被塞
+    const middleRow = (from.row + to.row) / 2;
+    const middleCol = (from.col + to.col) / 2;
+    const middlePosition: Position = { row: middleRow, col: middleCol };
+    
+    if (this.getPieceAt(middlePosition)) {
+      return { isLegal: false }; // 象眼被塞
+    }
+
+    return { isLegal: true };
+  }
+
+  private validateSoldierMove(from: Position, to: Position, color: 'Red' | 'Black'): MoveResult {
+    const rowDiff = to.row - from.row;
+    const colDiff = to.col - from.col;
+    const absRowDiff = Math.abs(rowDiff);
+    const absColDiff = Math.abs(colDiff);
+    
+    // 只能移動一格
+    if (absRowDiff + absColDiff !== 1) {
+      return { isLegal: false };
+    }
+
+    if (color === 'Red') {
+      // 紅方兵
+      if (from.row <= 5) {
+        // 過河前：只能向前（向上，row增加）
+        if (rowDiff !== 1 || colDiff !== 0) {
+          return { isLegal: false };
+        }
+      } else {
+        // 過河後：可以向前或橫向，但不能後退
+        if (rowDiff < 0) {
+          return { isLegal: false }; // 不能後退
+        }
+        // 只能向前或橫向移動一格
+        if (!((rowDiff === 1 && colDiff === 0) || (rowDiff === 0 && absColDiff === 1))) {
+          return { isLegal: false };
+        }
+      }
+    } else {
+      // 黑方兵
+      if (from.row >= 6) {
+        // 過河前：只能向前（向下，row減少）
+        if (rowDiff !== -1 || colDiff !== 0) {
+          return { isLegal: false };
+        }
+      } else {
+        // 過河後：可以向前或橫向，但不能後退
+        if (rowDiff > 0) {
+          return { isLegal: false }; // 不能後退
+        }
+        // 只能向前或橫向移動一格
+        if (!((rowDiff === -1 && colDiff === 0) || (rowDiff === 0 && absColDiff === 1))) {
+          return { isLegal: false };
+        }
+      }
+    }
+
+    return { isLegal: true };
   }
 
   public getPieceAt(position: Position): Piece | null {

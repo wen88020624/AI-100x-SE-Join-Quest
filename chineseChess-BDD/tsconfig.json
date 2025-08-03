@@ -17,7 +17,7 @@
   },
   "include": [
     "src/**/*"
-  ],
+, "src copy/main/services/chess.service.ts"  ],
   "exclude": [
     "node_modules",
     "dist",
